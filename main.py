@@ -10,4 +10,7 @@
 # murder mystery interactive detective game)
 import pygame as pg
 from pygame import sprite as spr
+import sprites
+import settings
+import saves
 # THIS IS A GITHUB TEST-COMMIT 2
