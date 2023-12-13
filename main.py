@@ -8,8 +8,40 @@
 # IDEAS:
 # murder simulator(I wrote this last time but to fully explain:
 # murder mystery interactive detective game)
+# import libraries and modules
 import pygame as pg
 from pygame import sprite as spr
 from sprites import *
 from settings import *
-from saves import *
+
+def save(x, y, lvl, file):
+    # select save file
+    if file == 1:
+        # save to designated file. write from python by w3schools:https://www.w3schools.com/python/python_file_write.asp 
+        s = open("save_1.txt", "w")
+        s.write(str(x)+"|"+str(y)+"|"+str(lvl)+"|")
+        s.close
+    if file == 2:
+        s = open("save_2.txt", "w")
+        s.write(str(x)+"|"+str(y)+"|"+str(lvl)+"|")
+        s.close
+    if file == 3:
+        s = open("save_3.txt", "w")
+        s.write(str(x)+"|"+str(y)+"|"+str(lvl)+"|")
+        s.close
+
+
+def load(file):
+    if file == 1:
+        s = open("save_3.txt", "r")
+        # reading from ciupicri and alfe:https://stackoverflow.com/questions/47927039/reading-a-file-until-a-specific-character-in-python
+        text = s.read()
+        textlist = text.split("|")
+        x = textlist[0]
+        y = textlist[1]
+        lvl =textlist[1]
+
+        return x, y, lvl
+
+    
+    
