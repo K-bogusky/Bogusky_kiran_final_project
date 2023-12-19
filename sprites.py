@@ -41,10 +41,9 @@ class Player(Sprite):
             self.game.save(self.rect.x, self.rect.y, self.game.score)
         if key[pg.K_o]:
             print("Loading...")
-            scorelist = self.game.load(1)
-            self.rect.x = scorelist[0]
-            self.rect.y = scorelist[1]
-            self.game.score = scorelist[2]
+            self.pos.x = self.game.load(1)[0]
+            self.pos.y = self.game.load(1)[1]
+            self.game.score = self.game.load(1)[2]
             
         # if key[pg.K_SCROLLOCK] or key[pg.K_r]:
             # locked = 1
