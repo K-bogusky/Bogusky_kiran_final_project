@@ -11,15 +11,15 @@ game_folder = os.path.dirname(__file__)
 img_folder = os.path.join(game_folder, 'images')
 sound_folder = os.path.join(game_folder, 'sounds')
 # global variables
-global locked
+# global locked
 # creating player class
 class Player(Sprite):
     def __init__(self, game):
         Sprite.__init__(self)
         self.game = game
-        self.image = pg.image.load(os.path.join(img_folder, "player")).convert()
-        self.rect = self.image.get_rect
-        self.rect.center = (0,0)
+        self.image = pg.image.load(os.path.join(img_folder, "player.png")).convert()
+        self.rect = self.image.get_rect()
+        self.rect.center = (0, 0)
         self.pos = vec(WIDTH/2, HEIGHT/2)
         self.vel = vec(0,0)
         self.acc = vec(0,0)
@@ -27,17 +27,27 @@ class Player(Sprite):
     def controls(self):
         key = pg.key.get_pressed()
         if key[pg.K_a]:
-            print("temp")
-        if key[pg.K_w]:
-            print("temp")
-        if key[pg.K_s]:
-            print("temp")
+            self.acc.x = -5
         if key[pg.K_d]:
-            print("temp")
+            self.acc.x = 5
+        if key[pg.K_SPACE]:
+            self.jump()
+        # if key[pg.K_w]:
+        #     self.acc.x = 5
+        # if key[pg.K_s]:
+        #     self.acc.x = 5
         if key[pg.K_l]:
-            self.game.save(self.rect.x,self.rect.y,self.score, 1)
-        if key[pg.K_SCROLLOCK] or key[pg.K_r]:
-            locked = 1
+            print("Saving...")
+            self.game.save(self.rect.x, self.rect.y, self.game.score)
+        if key[pg.K_o]:
+            print("Loading...")
+            scorelist = self.game.load(1)
+            self.rect.x = scorelist[0]
+            self.rect.y = scorelist[1]
+            self.game.score = scorelist[2]
+            
+        # if key[pg.K_SCROLLOCK] or key[pg.K_r]:
+            # locked = 1
     def jump(self):
         hits = pg.sprite.spritecollide(self, self.game.all_platforms, False)
         if hits:
@@ -47,7 +57,7 @@ class Player(Sprite):
         # CHECKING FOR COLLISION WITH MOBS
         mhits = pg.sprite.spritecollide(self, self.game.all_mobs, False)
         if mhits:
-            self.score += 10
+            self.game.score += 10
             
                 
 
@@ -60,6 +70,7 @@ class Player(Sprite):
         self.vel += self.acc
         self.pos += self.vel + 0.5 * self.acc
         self.rect.midbottom = self.pos
+    
         
 class Platform(Sprite):
     # create platform class
@@ -75,6 +86,8 @@ class Platform(Sprite):
         self.category = category
         if self.category == "moving":
             self.speed = 5
+        else:
+            self.speed = 0
     # uodate function to try to work as moving
     def update(self):
         if self.category == "moving":

@@ -68,7 +68,7 @@ class Game:
             if hits:
                 self.player.pos.y = hits[0].rect.top
                 self.player.vel.y = 0
-                self.player.vel.x = hits[0].speed*PLAYER_FRIC
+                self.player.vel.x = hits[0].speed * PLAYER_FRIC
 
          # this prevents the player from jumping up through a platform
         if self.player.vel.y < 0:
@@ -99,26 +99,26 @@ class Game:
         self.draw_text("Score: " + str(self.score), 22, WHITE, WIDTH/2, HEIGHT/10)
         # buffer - after drawing everything, flip display
         pg.display.flip()
-    def save(x, y, lvl, file):
+    def save(self, x, y, lvl):
         # select save file
-        if file == 1:
-            # save to designated file. write from python by w3schools:https://www.w3schools.com/python/python_file_write.asp 
-            # open file
-            s = open("save_1.txt", "w")
-            # write to file with "|" in between values
-            s.write(str(x)+"|"+str(y)+"|"+str(lvl)+"|")
-            s.close
-        elif file == 2:
-            s = open("save_2.txt", "w")
-            s.write(str(x)+"|"+str(y)+"|"+str(lvl)+"|")
-            s.close
-        elif file == 3:
-            s = open("save_3.txt", "w")
-            s.write(str(x)+"|"+str(y)+"|"+str(lvl)+"|")
-            s.close
+        # if file == 1:
+        # save to designated file. write from python by w3schools:https://www.w3schools.com/python/python_file_write.asp 
+        # open file
+        s = open("save_1.txt", "w")
+        # write to file with "|" in between values
+        s.write(str(x)+"|"+str(y)+"|"+str(lvl)+"|")
+        s.close
+        # elif file == 2:
+        #     s = open("save_2.txt", "w")
+        #     s.write(str(x)+"|"+str(y)+"|"+str(lvl)+"|")
+        #     s.close
+        # elif file == 3:
+        #     s = open("save_3.txt", "w")
+        #     s.write(str(x)+"|"+str(y)+"|"+str(lvl)+"|")
+        #     s.close
 
 
-    def load(file):
+    def load(self, file):
         if file == 1:
             s = open("save_1.txt", "r")
             # reading from ciupicri and alfe:https://stackoverflow.com/questions/47927039/reading-a-file-until-a-specific-character-in-python
