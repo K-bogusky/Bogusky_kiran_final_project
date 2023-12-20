@@ -4,7 +4,7 @@ A simple video game made for fun about high school.
 
 ## Description
 
-The setting is a school, and the project is made using Pygame. I used illustrator and procreate to create sprites, and coded the game in python and vscode. goal of the game is to solve consecutive mysteries.
+The setting is a school, and the project is made using Pygame. I used illustrator and procreate to create sprites, and coded the game in python and vscode. goal of the game is to solve consecutive mysteries. The "project" part of this is a simple read-write mechanism
 
 ## Getting Started
 
@@ -54,3 +54,6 @@ Inspiration, code snippets, etc.
 * [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
 * [ccozort](https://github.com/ccozort)
 * [Chris_Bradfield]
+* [ciupicri-and-alfe](https://stackoverflow.com/questions/47927039/reading-a-file-until-a-specific-character-in-python)
+* [W3SCHOOLS](https://www.w3schools.com/python/python_file_write.asp)
+]

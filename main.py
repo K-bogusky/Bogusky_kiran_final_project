@@ -1,10 +1,10 @@
 # This file was created by:Kiran Bogusky
 # Title: The mysterious bell
 # GameDesign:
-    # Goals: for the player:find out who killed the bellarmine bell
+    # Goals: for the player:have the ability to save and load using L and O
     # Rules: jump and run without falling
-    # Feedback: minimap, interactive menu, timer/day count, sound effects.
-    # Freedom: run side to side, walk through doors in bellarmine's campus.
+    # Feedback: score counter
+    # Freedom: run side to side,.
 # IDEAS:
 # murder simulator(I wrote this last time but to fully explain:
 # murder mystery interactive detective game)
